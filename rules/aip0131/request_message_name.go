@@ -22,6 +22,6 @@ import (
 // Get messages should have a properly named Request message.
 var requestMessageName = &lint.MethodRule{
 	Name:       lint.NewRuleName(131, "request-message-name"),
-	OnlyIf:     utils.IsGetMethod,
+	OnlyIf:     utils.IsDescribeMethod,
 	LintMethod: utils.LintMethodHasMatchingRequestName,
 }

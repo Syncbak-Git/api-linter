@@ -22,7 +22,7 @@ import (
 
 var (
 	createMethodRegexp         = regexp.MustCompile("^Create(?:[A-Z]|$)")
-	getMethodRegexp            = regexp.MustCompile("^Get(?:[A-Z]|$)")
+	describeMethodRegexp       = regexp.MustCompile("^Describe(?:[A-Z]|$)")
 	listMethodRegexp           = regexp.MustCompile("^List(?:[A-Z]|$)")
 	listRevisionsMethodRegexp  = regexp.MustCompile(`^List(?:[A-Za-z0-9]+)Revisions$`)
 	updateMethodRegexp         = regexp.MustCompile("^Update(?:[A-Z]|$)")
@@ -35,13 +35,13 @@ func IsCreateMethod(m *desc.MethodDescriptor) bool {
 	return createMethodRegexp.MatchString(m.GetName())
 }
 
-// IsGetMethod returns true if this is a AIP-131 Get method.
-func IsGetMethod(m *desc.MethodDescriptor) bool {
+// IsDescribeMethod returns true if this is a AIP-131 Get method.
+func IsDescribeMethod(m *desc.MethodDescriptor) bool {
 	methodName := m.GetName()
-	if methodName == "GetIamPolicy" {
+	if methodName == "DescribeIamPolicy" {
 		return false
 	}
-	return getMethodRegexp.MatchString(methodName)
+	return describeMethodRegexp.MatchString(methodName)
 }
 
 // IsListMethod return true if this is an AIP-132 List method

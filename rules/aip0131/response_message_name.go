@@ -26,7 +26,7 @@ import (
 // Get messages should use the resource as the response message
 var responseMessageName = &lint.MethodRule{
 	Name:   lint.NewRuleName(131, "response-message-name"),
-	OnlyIf: utils.IsGetMethod,
+	OnlyIf: utils.IsDescribeMethod,
 	LintMethod: func(m *desc.MethodDescriptor) []lint.Problem {
 		// Rule check: Establish that for methods such as `GetFoo`, the response
 		// message is named `Foo`.

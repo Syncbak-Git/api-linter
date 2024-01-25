@@ -44,7 +44,7 @@ var resourceMustSupportList = &lint.ServiceRule{
 					t := utils.GetResource(msg).GetType()
 					resourcesWithList.Add(t)
 				}
-			} else if utils.IsCreateMethod(m) || utils.IsUpdateMethod(m) || utils.IsGetMethod(m) {
+			} else if utils.IsCreateMethod(m) || utils.IsUpdateMethod(m) || utils.IsDescribeMethod(m) {
 				if msg := utils.GetResponseType(m); msg != nil && utils.IsResource(msg) {
 					// Skip tracking Singleton resources, they do not need List.
 					if utils.IsSingletonResource(msg) {

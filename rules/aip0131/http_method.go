@@ -22,6 +22,6 @@ import (
 // Get methods should use the HTTP GET verb.
 var httpMethod = &lint.MethodRule{
 	Name:       lint.NewRuleName(131, "http-method"),
-	OnlyIf:     utils.IsGetMethod,
+	OnlyIf:     utils.IsDescribeMethod,
 	LintMethod: utils.LintHTTPMethod("GET"),
 }

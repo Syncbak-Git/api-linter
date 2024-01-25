@@ -39,7 +39,7 @@ var resourceMustSupportGet = &lint.ServiceRule{
 				continue
 			}
 
-			if utils.IsGetMethod(m) && utils.IsResource(utils.GetResponseType(m)) {
+			if utils.IsDescribeMethod(m) && utils.IsResource(utils.GetResponseType(m)) {
 				t := utils.GetResource(m.GetOutputType()).GetType()
 				resourcesWithGet.Add(t)
 			} else if utils.IsCreateMethod(m) || utils.IsUpdateMethod(m) {
